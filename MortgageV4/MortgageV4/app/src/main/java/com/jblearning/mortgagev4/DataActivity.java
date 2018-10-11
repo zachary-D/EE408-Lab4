@@ -21,7 +21,11 @@ public class DataActivity extends AppCompatActivity {
     } else if( mortgage.getYears( ) == 15 ) {
       RadioButton rb15 = ( RadioButton ) findViewById( R.id.fifteen );
       rb15.setChecked( true );
-    } // else do nothing (default is 30)
+    } else if( mortgage.getYears() == 20) {
+      RadioButton rb20 = (RadioButton ) findViewById( R.id.twenty);
+      rb20.setChecked(true);
+    }
+    // else do nothing (default is 30)
 
     EditText amountET = ( EditText ) findViewById( R.id.data_amount );
     amountET.setText( "" + mortgage.getAmount( ) );
@@ -33,11 +37,14 @@ public class DataActivity extends AppCompatActivity {
     Mortgage mortgage = MainActivity.mortgage;
     RadioButton rb10 = ( RadioButton ) findViewById( R.id.ten );
     RadioButton rb15 = ( RadioButton ) findViewById( R.id.fifteen );
+    RadioButton rb20 = ( RadioButton ) findViewById( R.id.twenty );
     int years = 30;
     if( rb10.isChecked( ) )
       years = 10;
     else if( rb15.isChecked( ) )
       years = 15;
+    else if( rb20.isChecked() )
+      years = 20;
     mortgage.setYears( years );
     EditText amountET = ( EditText ) findViewById( R.id.data_amount );
     String amountString = amountET.getText( ).toString( );
